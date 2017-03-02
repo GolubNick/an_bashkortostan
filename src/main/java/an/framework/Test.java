@@ -1,18 +1,19 @@
 package an.framework;
 
-import an.framework.model.Deputat;
+import an.framework.model.DeputatModel;
 import an.framework.webdriver.WebManager;
+import an.object.DeputatObject;
 
 public class Test {
 
-    private Deputat deputat = Deputat.get();
     private WebManager webManager = WebManager.get();
+    private DeputatModel deputatModel = DeputatModel.get();
 
-    public void start(){
-        webManager.navigateToUrl("http://gorsovet-ufa.ru/newdeputat/os/zubairov.php");
-        deputat.setName("test");
-        deputat.setEmail("test");
-        deputat.setMessage("test");
-        deputat.setCaptcha("test");
+    public void start(DeputatObject deputatObject){
+        webManager.navigateToUrl("http://gorsovet-ufa.ru/newdeputat/os/" + deputatObject.getCategory());
+        deputatModel.setName(deputatObject.getFio());
+        deputatModel.setEmail(deputatObject.getEmail());
+        deputatModel.setMessage(deputatObject.getMessage());
+        deputatModel.setCaptcha("test");
     }
 }

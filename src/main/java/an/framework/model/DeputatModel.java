@@ -2,25 +2,24 @@ package an.framework.model;
 
 import an.framework.elements.Button;
 import an.framework.elements.TextField;
-import an.framework.webdriver.DSL;
 
-public class Deputat {
+public class DeputatModel {
 
-    private static Deputat instance ;
+    private static DeputatModel instance ;
     private Button submit;
     private TextField name;
     private TextField email;
     private TextField message;
     private TextField captcha;
 
-    public static Deputat get(){
+    public static DeputatModel get(){
         if (instance == null){
-            instance = new Deputat().init();
+            instance = new DeputatModel().init();
         }
         return instance;
     }
 
-    private Deputat init(){
+    private DeputatModel init(){
         name = new TextField("//*[@name='user_name']");
         email = new TextField("//*[@name='user_email']");
         message = new TextField("//*[@name='MESSAGE']");
