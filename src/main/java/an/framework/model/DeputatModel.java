@@ -1,6 +1,7 @@
 package an.framework.model;
 
 import an.framework.elements.Button;
+import an.framework.elements.Link;
 import an.framework.elements.TextField;
 
 public class DeputatModel {
@@ -11,6 +12,8 @@ public class DeputatModel {
     private TextField email;
     private TextField message;
     private TextField captcha;
+    private Link captchaLink;
+    private final String UFAGORSOVET = "http://gorsovet-ufa.ru";
 
     public static DeputatModel get(){
         if (instance == null){
@@ -25,6 +28,7 @@ public class DeputatModel {
         message = new TextField("//*[@name='MESSAGE']");
         captcha = new TextField("//*[@name='captcha_word']");
         submit = new Button("//*[@name='submit']");
+        captchaLink = new Link("//*[@name='captcha_sid']/following-sibling::img");
         return this;
     }
 
@@ -46,5 +50,9 @@ public class DeputatModel {
 
     public void clickSubmit(){
         submit.click();
+    }
+
+    public String getCaptchaText() {
+        return captchaLink.getText();
     }
 }

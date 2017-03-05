@@ -2,5 +2,15 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/an/helpers/AnticaptchaBase.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/an/helpers/CreateTaskResponse.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/an/helpers/DebugHelper.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/an/helpers/HttpHelper.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/an/helpers/HttpRequest.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/an/helpers/HttpResponse.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/an/helpers/ImageToText.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/an/helpers/JsonHelper.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/an/helpers/StringHelper.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/an/helpers/TaskResultResponse.java" charset="windows-1251" />
   </component>
 </project>
