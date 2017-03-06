@@ -1,6 +1,7 @@
 package an.controllers;
 
 import an.framework.Test;
+import an.framework.jsoup.GetCaptchaValue;
 import an.object.PageObject;
 import an.object.PageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 @RestController
 public class MainController {
@@ -21,8 +23,13 @@ public class MainController {
     @ResponseStatus(HttpStatus.OK)
     public void postPage(/*@RequestParam("fileUpload") MultipartFile[] files,*/
                          @RequestBody PageObject pageObject) throws IOException {
-        if (pageObject.getCategory().equals("ufa_gorsovet"))
-            new Test().startGroSovet(pageService.createService(pageObject));
+//        if (pageObject.getCategory().equals("ufa_gorsovet"))
+//            new Test().startGroSovet(pageService.createService(pageObject));
+        try {
+            new Test().startGorSovet(pageService.createService(pageObject));
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
 
 //        File newFile = new File("e:\\12345"+files[0].getOriginalFilename());
 //        files[0].transferTo(newFile);
