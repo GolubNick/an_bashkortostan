@@ -1,5 +1,7 @@
-package an.helpers;
+package an.anticaptcha.api;
 
+import an.anticaptcha.AnticaptchaBase;
+import an.anticaptcha.helper.DebugHelper;
 import org.json.JSONException;
 import org.json.JSONObject;
 

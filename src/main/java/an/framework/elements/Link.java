@@ -1,6 +1,6 @@
 package an.framework.elements;
 
-import an.helpers.GetTextFromCatpchaImage;
+import an.anticaptcha.GetTextFromCatpchaImage;
 import org.openqa.selenium.By;
 
 public class Link  extends Element{

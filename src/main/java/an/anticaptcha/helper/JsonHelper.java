@@ -1,5 +1,6 @@
-package an.helpers;
+package an.anticaptcha.helper;
 
+import an.anticaptcha.helper.DebugHelper;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -11,14 +12,6 @@ import java.util.Locale;
 public class JsonHelper {
     public static String extractStr(JSONObject json, String fieldName) {
         return extractStr(json, fieldName, null, false);
-    }
-
-    public static String extractStr(JSONObject json, String fieldName, Boolean silent) {
-        return extractStr(json, fieldName, null, silent);
-    }
-
-    public static String extractStr(JSONObject json, String firstLevel, String secondLevel) {
-        return extractStr(json, firstLevel, secondLevel, false);
     }
 
     public static String asString(JSONObject json) {

@@ -1,5 +1,7 @@
-package an.helpers;
+package an.anticaptcha.helper;
 
+import an.anticaptcha.http.HttpRequest;
+import an.anticaptcha.http.HttpResponse;
 import org.apache.http.HttpHost;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;

@@ -1,6 +1,13 @@
-package an.helpers;
+package an.anticaptcha;
 
 
+import an.anticaptcha.apiresponse.CreateTaskResponse;
+import an.anticaptcha.apiresponse.TaskResultResponse;
+import an.anticaptcha.helper.DebugHelper;
+import an.anticaptcha.helper.HttpHelper;
+import an.anticaptcha.helper.JsonHelper;
+import an.anticaptcha.helper.StringHelper;
+import an.anticaptcha.http.HttpRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 

@@ -1,5 +1,7 @@
-package an.helpers;
+package an.anticaptcha;
 
+import an.anticaptcha.api.ImageToText;
+import an.anticaptcha.helper.DebugHelper;
 import sun.misc.BASE64Encoder;
 
 import javax.imageio.ImageIO;

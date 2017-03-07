@@ -1,8 +1,5 @@
-package an.helpers;
+package an.anticaptcha.helper;
 
-import javax.xml.bind.DatatypeConverter;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 public class StringHelper {
     public static String toCamelCase(String s) {
@@ -14,13 +11,5 @@ public class StringHelper {
         }
 
         return camelCaseString.substring(0, 1).toLowerCase() + camelCaseString.substring(1);
-    }
-
-    public static String imageFileToBase64String(String path) {
-        try {
-            return DatatypeConverter.printBase64Binary(Files.readAllBytes(Paths.get(path)));
-        } catch (Exception e) {
-            return null;
-        }
     }
 }

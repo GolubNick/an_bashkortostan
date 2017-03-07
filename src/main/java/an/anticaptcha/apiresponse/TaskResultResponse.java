@@ -1,5 +1,7 @@
-package an.helpers;
+package an.anticaptcha.apiresponse;
 
+import an.anticaptcha.helper.DebugHelper;
+import an.anticaptcha.helper.JsonHelper;
 import org.json.JSONObject;
 
 import java.time.ZoneId;

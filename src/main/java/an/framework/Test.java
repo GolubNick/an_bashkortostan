@@ -1,15 +1,11 @@
 package an.framework;
 
 import an.framework.jsoup.GetCaptchaValue;
-import an.framework.model.DeputatModel;
-import an.framework.webdriver.WebManager;
-import an.helpers.GetTextFromCatpchaImage;
+import an.anticaptcha.GetTextFromCatpchaImage;
 import an.object.PageObject;
 import org.apache.http.NameValuePair;
-import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.message.BasicNameValuePair;
 
-import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URISyntaxException;

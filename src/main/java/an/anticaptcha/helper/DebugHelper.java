@@ -1,4 +1,4 @@
-package an.helpers;
+package an.anticaptcha.helper;
 
 import org.json.JSONObject;
 
