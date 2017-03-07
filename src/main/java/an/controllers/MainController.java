@@ -23,13 +23,13 @@ public class MainController {
     @ResponseStatus(HttpStatus.OK)
     public void postPage(/*@RequestParam("fileUpload") MultipartFile[] files,*/
                          @RequestBody PageObject pageObject) throws IOException {
-//        if (pageObject.getCategory().equals("ufa_gorsovet"))
-//            new Test().startGroSovet(pageService.createService(pageObject));
-        try {
-            new Test().startGorSovet(pageService.createService(pageObject));
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
+        if (pageObject.getCategory().contains("gorsovet_ufa"))
+            new Test().startGroSovet(pageService.createService(pageObject));
+//        try {
+//            new Test().startGorSovet(pageService.createService(pageObject));
+//        } catch (URISyntaxException e) {
+//            e.printStackTrace();
+//        }
 
 //        File newFile = new File("e:\\12345"+files[0].getOriginalFilename());
 //        files[0].transferTo(newFile);

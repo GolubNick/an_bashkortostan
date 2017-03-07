@@ -2,6 +2,9 @@ package an.framework;
 
 import an.framework.jsoup.GetCaptchaValue;
 import an.anticaptcha.GetTextFromCatpchaImage;
+import an.framework.model.DeputatModel;
+import an.framework.model.ProkuraturaModel;
+import an.framework.webdriver.WebManager;
 import an.object.PageObject;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -16,16 +19,30 @@ import java.util.List;
 
 public class Test {
 
-//    private WebManager webManager = WebManager.get();
+    private WebManager webManager = WebManager.get();
+    private DeputatModel deputatModel = DeputatModel.get();
+    private ProkuraturaModel prokuraturaModel = ProkuraturaModel.get();
 //    private DeputatModel deputatModel = DeputatModel.get();
-//
-//    public void startGroSovet(PageObject pageObject){
-//        webManager.navigateToUrl("http://gorsovet-ufa.ru/newdeputat/os/" + pageObject.getCategory());
-//        deputatModel.setName(pageObject.getFio());
-//        deputatModel.setEmail(pageObject.getEmail());
-//        deputatModel.setMessage(pageObject.getMessage());
-//        deputatModel.setCaptcha(deputatModel.getCaptchaText());
-//    }
+
+    public void startGroSovet(PageObject pageObject){
+        webManager.navigateToUrl("http://gorsovet-ufa.ru/newdeputat/os/" + pageObject.getCategory().split("_")[2] + ".php");
+        deputatModel.setName(pageObject.getName());
+        deputatModel.setEmail(pageObject.getEmail());
+        deputatModel.setMessage(pageObject.getMessage());
+        deputatModel.setCaptcha(deputatModel.getCaptchaText());
+    }
+
+    public void startBashProk(PageObject pageObject){
+        webManager.navigateToUrl("http://bashprok.ru/internet_reception/" );
+        prokuraturaModel.setName(pageObject.getName());
+        prokuraturaModel.setSirname(pageObject.getSirname());
+        prokuraturaModel.setFathername(pageObject.getFathername());
+        prokuraturaModel.setEmail(pageObject.getEmail());
+        prokuraturaModel.setTelnumber(pageObject.getTelephone());
+        prokuraturaModel.setAddresss(pageObject.getAddress());
+        prokuraturaModel.setMessage(pageObject.getMessage());
+        prokuraturaModel.setCaptcha(prokuraturaModel.getCaptchaText());
+    }
 
     public void startGorSovet(PageObject pageObject) throws IOException, URISyntaxException {
         URL url = new URL("http://gorsovet-ufa.ru/newdeputat/os/" + pageObject.getCategory());
