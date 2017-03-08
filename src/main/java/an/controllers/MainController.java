@@ -25,6 +25,11 @@ public class MainController {
                          @RequestBody PageObject pageObject) throws IOException {
         if (pageObject.getCategory().contains("gorsovet_ufa"))
             new Test().startGroSovet(pageService.createService(pageObject));
+        else if (pageObject.getCategory().contains("bashprok"))
+            new Test().startBashProk(pageService.createService(pageObject));
+
+
+
 //        try {
 //            new Test().startGorSovet(pageService.createService(pageObject));
 //        } catch (URISyntaxException e) {

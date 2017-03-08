@@ -24,18 +24,24 @@ public class WebManager {
 
     private WebManager init() {
 
-        DesiredCapabilities DesireCaps = new DesiredCapabilities();
-        DesireCaps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, "C://phantomjs//phantomjs.exe");
-        driver = new PhantomJSDriver(DesireCaps);
+//        DesiredCapabilities desireCaps = new DesiredCapabilities();
+//        desireCaps.setJavascriptEnabled(true);
+//        desireCaps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, "C://phantomjs//phantomjs.exe");
+//        driver = new PhantomJSDriver(desireCaps);
 
-//        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver\\chromedriver.exe");
-//        driver = new ChromeDriver();
+
+        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver\\chromedriver.exe");
+        driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         return this;
     }
 
     public void navigateToUrl(String url) {
         driver.navigate().to(url);
+    }
+
+    public void getUrl(String url) {
+        driver.get(url);
     }
 
     public WebDriver getDriver(){

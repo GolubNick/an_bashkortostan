@@ -1,8 +1,6 @@
 package an.framework.model;
 
-import an.framework.elements.Button;
-import an.framework.elements.Link;
-import an.framework.elements.TextField;
+import an.framework.elements.*;
 
 public class ProkuraturaModel {
 
@@ -16,7 +14,9 @@ public class ProkuraturaModel {
     private TextField addresss;
     private TextField message;
     private TextField captcha;
+    private Button addFile;
     private Link captchaLink;
+    private ImageLink uploadImage;
 
     public static ProkuraturaModel get(){
         if (instance == null){
@@ -36,6 +36,8 @@ public class ProkuraturaModel {
         captcha = new TextField("//*[@name='captcha_word']");
         submit = new Button("//*[@class='btn btn-primary btn-block' and @type='button']");
         captchaLink = new Link("//*[@id='captcha_pic']");
+        addFile = new Button("//*[@class='add_file']");
+        uploadImage = new ImageLink("//input[@type='file']");
         return this;
     }
 
@@ -73,6 +75,13 @@ public class ProkuraturaModel {
 
     public void setCaptcha(String value) {
         captcha.setText(value);
+    }
+
+    public void setUploadImage(String url){
+        uploadImage.uploadImageFromUrl(url);
+    }
+    public void clickAddFile(){
+        addFile.click();
     }
 
     public void clickSubmit(){
