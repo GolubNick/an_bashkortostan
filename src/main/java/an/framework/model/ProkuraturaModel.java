@@ -80,6 +80,7 @@ public class ProkuraturaModel {
     public void setUploadImage(String url){
         uploadImage.uploadImageFromUrl(url);
     }
+
     public void clickAddFile(){
         addFile.click();
     }

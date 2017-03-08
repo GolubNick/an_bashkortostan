@@ -27,7 +27,8 @@ public class MainController {
             new Test().startGroSovet(pageService.createService(pageObject));
         else if (pageObject.getCategory().contains("bashprok"))
             new Test().startBashProk(pageService.createService(pageObject));
-
+        else if (pageObject.getCategory().contains("gibdd_rb"))
+            new Test().startGIBDDProk(pageService.createService(pageObject));
 
 
 //        try {
