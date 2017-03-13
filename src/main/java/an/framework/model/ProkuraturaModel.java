@@ -4,7 +4,7 @@ import an.framework.elements.*;
 
 public class ProkuraturaModel {
 
-    private static ProkuraturaModel instance ;
+    private static ThreadLocal<ProkuraturaModel> instance  = new ThreadLocal<>();
     private Button submit;
     private TextField name;
     private TextField sirname;
@@ -19,10 +19,10 @@ public class ProkuraturaModel {
     private ImageLink uploadImage;
 
     public static ProkuraturaModel get(){
-        if (instance == null){
-            instance = new ProkuraturaModel().init();
+        if (instance.get() == null){
+            instance.set(new ProkuraturaModel().init());
         }
-        return instance;
+        return instance.get();
     }
 
     private ProkuraturaModel init(){

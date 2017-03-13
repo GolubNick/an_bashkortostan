@@ -4,7 +4,7 @@ import an.framework.elements.*;
 
 public class GIBDDModel {
 
-    private static GIBDDModel instance ;
+    private static ThreadLocal<GIBDDModel> instance  = new ThreadLocal<>();
 
     private TextField name;
     private TextField sirname;
@@ -14,7 +14,7 @@ public class GIBDDModel {
     private TextField message;
     private TextField captcha;
     private Link captchaLink;
-
+    private Label alertCaptcha;
     private Button submit;
     private Button fillForm;
     private Button selectRepublicBashkortostan;
@@ -24,10 +24,10 @@ public class GIBDDModel {
     private ImageLink uploadImage;
 
     public static GIBDDModel get(){
-        if (instance == null){
-            instance = new GIBDDModel().init();
+        if (instance.get() == null){
+            instance.set(new GIBDDModel().init());
         }
-        return instance;
+        return instance.get();
     }
 
     private GIBDDModel init(){
@@ -45,6 +45,7 @@ public class GIBDDModel {
         selectRepublicBashkortostan= new Button("//*[@id='fancybox-content']//li[2]/a");
         elForm= new RadioButton("//*[@name='f_answer_method' and @value='615']");
         uploadImage = new ImageLink("//input[@type='file']");
+        alertCaptcha = new Label("//*[@id='fancybox-close' and @style='display: inline;']");
         return this;
     }
 
@@ -102,5 +103,9 @@ public class GIBDDModel {
 
     public String getCaptchaText() {
         return captchaLink.getText();
+    }
+
+    public boolean isIncorrectCaptchaAlertVisible(){
+        return alertCaptcha.isVisible(alertCaptcha.toString());
     }
 }

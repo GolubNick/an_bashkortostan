@@ -11,15 +11,15 @@ import java.util.concurrent.TimeUnit;
 
 public class WebManager {
 
-    private static WebManager instance;
+    private static ThreadLocal<WebManager> instance = new ThreadLocal<>();
     private WebDriver driver;
 //    private HtmlUnitDriver driver;
 
     public static WebManager get() {
-        if (instance == null) {
-            instance = new WebManager().init();
+        if (instance.get() == null) {
+            instance.set(new WebManager().init());
         }
-        return instance;
+        return instance.get();
     }
 
     private WebManager init() {
@@ -46,5 +46,19 @@ public class WebManager {
 
     public WebDriver getDriver(){
         return driver;
+    }
+
+    public void closeDriver(){
+        driver.quit();
+    }
+
+    public boolean isAlertPresent(){
+        try {
+            driver.switchTo().alert();
+            return true;
+        }
+        catch (Exception e) {
+            return false;
+        }
     }
 }

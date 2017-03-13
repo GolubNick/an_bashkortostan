@@ -6,20 +6,20 @@ import an.framework.elements.TextField;
 
 public class DeputatModel {
 
-    private static DeputatModel instance ;
+    private static ThreadLocal<DeputatModel> instance = new ThreadLocal<>();
     private Button submit;
     private TextField name;
     private TextField email;
     private TextField message;
     private TextField captcha;
+    private TextField errorText;
     private Link captchaLink;
-    private final String UFAGORSOVET = "http://gorsovet-ufa.ru";
 
     public static DeputatModel get(){
-        if (instance == null){
-            instance = new DeputatModel().init();
+        if (instance.get() == null){
+            instance.set(new DeputatModel().init());
         }
-        return instance;
+        return instance.get();
     }
 
     private DeputatModel init(){
@@ -27,6 +27,7 @@ public class DeputatModel {
         email = new TextField("//*[@name='user_email']");
         message = new TextField("//*[@name='MESSAGE']");
         captcha = new TextField("//*[@name='captcha_word']");
+        errorText = new TextField("//*[@class='errortext']");
         submit = new Button("//*[@name='submit']");
         captchaLink = new Link("//*[@name='captcha_sid']/following-sibling::img");
         return this;
@@ -54,5 +55,9 @@ public class DeputatModel {
 
     public String getCaptchaText() {
         return captchaLink.getText();
+    }
+
+    public boolean isErrorTextVisible(){
+        return errorText.isVisible(errorText.toString());
     }
 }
