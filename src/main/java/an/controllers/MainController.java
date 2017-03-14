@@ -31,6 +31,7 @@ public class MainController {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+        System.out.println(responce.contains("200") ? "Task success" : "Task failed");
         return responce;
     }
 }

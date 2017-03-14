@@ -4,10 +4,8 @@ import org.openqa.selenium.By;
 
 public class TextField extends Element{
 
-    private String locator;
-
     public TextField(String locator){
-        this.locator = locator;
+        super.locator = locator;
     }
 
     public void setText(String text){

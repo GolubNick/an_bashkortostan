@@ -106,6 +106,6 @@ public class GIBDDModel {
     }
 
     public boolean isIncorrectCaptchaAlertVisible(){
-        return alertCaptcha.isVisible(alertCaptcha.toString());
+        return alertCaptcha.isVisible();
     }
 }

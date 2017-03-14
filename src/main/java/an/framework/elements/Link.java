@@ -5,10 +5,8 @@ import org.openqa.selenium.By;
 
 public class Link  extends Element{
 
-    private String locator;
-
     public Link(String locator){
-        this.locator = locator;
+        super.locator = locator;
     }
 
     public String getText(){

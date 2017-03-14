@@ -4,10 +4,8 @@ import org.openqa.selenium.By;
 
 public class Button extends Element{
 
-    private String locator;
-
     public Button(String locator){
-        this.locator = locator;
+        super.locator = locator;
     }
 
     public void click(){

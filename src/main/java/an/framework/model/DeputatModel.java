@@ -59,6 +59,6 @@ public class DeputatModel {
     }
 
     public boolean isErrorTextVisible(){
-        return errorText.isVisible(errorText.toString());
+        return errorText.isVisible();
     }
 }
