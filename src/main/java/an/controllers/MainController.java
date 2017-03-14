@@ -35,6 +35,7 @@ public class MainController {
                     testObject.closeDriver();
                 }
         System.out.println(responce.contains("200") ? "Task success" : "Task failed");
+        System.out.println(responce);
         return responce;
     }
 }

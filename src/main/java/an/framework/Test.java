@@ -58,7 +58,6 @@ public class Test {
     public String startGIBDDProk(PageObject pageObject) throws IOException {
         webManager.navigateToUrl("http://www.gibdd.ru/letter/");
         gibddModel.clickFillForm();
-        gibddModel.waitForSelectorRepublicBashkortostan();
         gibddModel.clickSelectRepublicBashkortostan();
         gibddModel.setSirname(pageObject.getSirname());
         gibddModel.setName(pageObject.getName());
@@ -76,7 +75,6 @@ public class Test {
             gibddModel.setUploadImage(file.getAbsolutePath());
         }
         gibddModel.setCaptcha(gibddModel.getCaptchaText());
-//        gibddModel.setCaptcha("dd");
         gibddModel.clickSubmit();
         if (webManager.isAlertPresent() || gibddModel.isIncorrectCaptchaAlertVisible())
             code = "400 Bad Request";

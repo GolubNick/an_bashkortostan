@@ -86,7 +86,13 @@ public class GIBDDModel {
     }
 
     public void clickSelectRepublicBashkortostan(){
-        selectRepublicBashkortostan.click();
+        try {
+            Thread.sleep(2000);
+            selectRepublicBashkortostan.click();
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public void clickAddAttach(){
