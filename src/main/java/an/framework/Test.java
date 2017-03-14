@@ -23,7 +23,7 @@ public class Test {
         deputatModel.setEmail(pageObject.getEmail());
         deputatModel.setMessage(pageObject.getMessage());
         deputatModel.setCaptcha(deputatModel.getCaptchaText());
-//        deputatModel.clickSubmit();
+        deputatModel.clickSubmit();
         if (deputatModel.isErrorTextVisible())
             code = "400 Bad request";
         return code;
@@ -75,7 +75,8 @@ public class Test {
             gibddModel.setUploadImage(file.getAbsolutePath());
         }
         gibddModel.setCaptcha(gibddModel.getCaptchaText());
-//        gibddModel.clickSubmit();
+//        gibddModel.setCaptcha("dd");
+        gibddModel.clickSubmit();
         if (webManager.isAlertPresent() || gibddModel.isIncorrectCaptchaAlertVisible())
             code = "400 Bad Request";
         if (file != null)

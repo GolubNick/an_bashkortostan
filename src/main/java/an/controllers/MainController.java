@@ -19,17 +19,19 @@ public class MainController {
     @ResponseStatus(HttpStatus.OK)
     public String postPage(@RequestBody PageObject pageObject) {
         String responce = "";
+        Test testObject = null;
                 try {
-                    Test testObject = new Test();
+                    testObject = new Test();
                     if (pageObject.getCategory().contains("gorsovet_ufa"))
                         responce = testObject.startGroSovet(pageService.createService(pageObject));
                     else if (pageObject.getCategory().contains("bashprok"))
                         responce = testObject.startBashProk(pageService.createService(pageObject));
                     else if (pageObject.getCategory().contains("gibdd_rb"))
                         responce = testObject.startGIBDDProk(pageService.createService(pageObject));
-                    testObject.closeDriver();
-                } catch (IOException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
+                } finally {
+                    testObject.closeDriver();
                 }
         System.out.println(responce.contains("200") ? "Task success" : "Task failed");
         return responce;
