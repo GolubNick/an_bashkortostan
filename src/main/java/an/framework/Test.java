@@ -17,18 +17,20 @@ public class Test {
     private GIBDDModel gibddModel = GIBDDModel.get();
     private String code = "200 Ok";
 
-    public void startGroSovet(PageObject pageObject){
+    public String startGroSovet(PageObject pageObject){
         webManager.getUrl("http://gorsovet-ufa.ru/newdeputat/os/" + pageObject.getCategory().split("_")[2] + ".php");
         deputatModel.setName(pageObject.getName());
         deputatModel.setEmail(pageObject.getEmail());
         deputatModel.setMessage(pageObject.getMessage());
         deputatModel.setCaptcha(deputatModel.getCaptchaText());
+//        deputatModel.setCaptcha("qq");
         deputatModel.clickSubmit();
         if (deputatModel.isErrorTextVisible())
             code = "400 Bad request";
+        return code;
     }
 
-    public void startBashProk(PageObject pageObject) throws IOException {
+    public String startBashProk(PageObject pageObject) throws IOException {
         webManager.navigateToUrl("http://bashprok.ru/internet_reception/" );
         prokuraturaModel.setName(pageObject.getName());
         prokuraturaModel.setSirname(pageObject.getSirname());
@@ -51,9 +53,10 @@ public class Test {
             code = "400 Bad Request";
         if (file != null)
             FileHelper.fileDelete(file);
+        return code;
     }
 
-    public void startGIBDDProk(PageObject pageObject) throws IOException {
+    public String startGIBDDProk(PageObject pageObject) throws IOException {
         webManager.navigateToUrl("http://www.gibdd.ru/letter/");
         gibddModel.clickFillForm();
         gibddModel.clickSelectRepublicBashkortostan();
@@ -78,6 +81,7 @@ public class Test {
             code = "400 Bad Request";
         if (file != null)
             FileHelper.fileDelete(file);
+        return code;
     }
 
     public void closeDriver(){

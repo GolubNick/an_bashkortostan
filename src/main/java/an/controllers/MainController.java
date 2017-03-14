@@ -17,22 +17,20 @@ public class MainController {
 
     @RequestMapping(path = "/", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
-    public void postPage(@RequestBody PageObject pageObject) {
-        new Thread() {
-            public void run() {
+    public String postPage(@RequestBody PageObject pageObject) {
+        String responce = "";
                 try {
                     Test testObject = new Test();
                     if (pageObject.getCategory().contains("gorsovet_ufa"))
-                        testObject.startGroSovet(pageService.createService(pageObject));
+                        responce = testObject.startGroSovet(pageService.createService(pageObject));
                     else if (pageObject.getCategory().contains("bashprok"))
-                        testObject.startBashProk(pageService.createService(pageObject));
+                        responce = testObject.startBashProk(pageService.createService(pageObject));
                     else if (pageObject.getCategory().contains("gibdd_rb"))
-                        testObject.startGIBDDProk(pageService.createService(pageObject));
+                        responce = testObject.startGIBDDProk(pageService.createService(pageObject));
                     testObject.closeDriver();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }
-        }.start();
+        return responce;
     }
 }

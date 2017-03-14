@@ -1,6 +1,7 @@
 package an.framework.model;
 
 import an.framework.elements.Button;
+import an.framework.elements.Label;
 import an.framework.elements.Link;
 import an.framework.elements.TextField;
 
@@ -12,7 +13,7 @@ public class DeputatModel {
     private TextField email;
     private TextField message;
     private TextField captcha;
-    private TextField errorText;
+    private Label errorText;
     private Link captchaLink;
 
     public static DeputatModel get(){
@@ -27,7 +28,7 @@ public class DeputatModel {
         email = new TextField("//*[@name='user_email']");
         message = new TextField("//*[@name='MESSAGE']");
         captcha = new TextField("//*[@name='captcha_word']");
-        errorText = new TextField("//*[@class='errortext']");
+        errorText = new Label("//*[@class='errortext']");
         submit = new Button("//*[@name='submit']");
         captchaLink = new Link("//*[@name='captcha_sid']/following-sibling::img");
         return this;
