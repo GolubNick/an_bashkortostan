@@ -29,6 +29,7 @@ public class MainController {
                     else if (pageObject.getCategory().contains("gibdd_rb"))
                         responce = testObject.startGIBDDProk(pageService.createService(pageObject));
                 } catch (Exception e) {
+                    responce = "404 Unexpected exception appears";
                     e.printStackTrace();
                 } finally {
                     testObject.closeDriver();

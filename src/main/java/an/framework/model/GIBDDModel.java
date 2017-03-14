@@ -108,4 +108,8 @@ public class GIBDDModel {
     public boolean isIncorrectCaptchaAlertVisible(){
         return alertCaptcha.isVisible();
     }
+
+    public void waitForSelectorRepublicBashkortostan(){
+        selectRepublicBashkortostan.waitForElement();
+    }
 }

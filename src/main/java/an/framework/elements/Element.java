@@ -14,4 +14,13 @@ public abstract class Element extends DSL implements IElement{
             return false;
         }
     }
+
+
+    public void waitForElement(){
+        try {
+            driver.findElement(By.xpath(locator)).wait();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }

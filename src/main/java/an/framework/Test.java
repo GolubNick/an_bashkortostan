@@ -58,6 +58,7 @@ public class Test {
     public String startGIBDDProk(PageObject pageObject) throws IOException {
         webManager.navigateToUrl("http://www.gibdd.ru/letter/");
         gibddModel.clickFillForm();
+        gibddModel.waitForSelectorRepublicBashkortostan();
         gibddModel.clickSelectRepublicBashkortostan();
         gibddModel.setSirname(pageObject.getSirname());
         gibddModel.setName(pageObject.getName());
