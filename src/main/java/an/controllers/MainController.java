@@ -29,12 +29,12 @@ public class MainController {
                     else if (pageObject.getCategory().contains("gibdd_rb"))
                         responce = testObject.startGIBDDProk(pageService.createService(pageObject));
                 } catch (Exception e) {
-                    responce = "404 Unexpected exception appears";
+                    responce = "Unexpected exception appears";
                     e.printStackTrace();
                 } finally {
                     testObject.closeDriver();
                 }
-        System.out.println(responce.contains("200") ? "Task success" : "Task failed");
+        System.out.println(responce.contains("Send") ? "Task success" : "Task failed");
         System.out.println(responce);
         return responce;
     }
