@@ -122,7 +122,7 @@ public class HttpHelper {
         return "." + url.split("://")[1].split("/")[0];
     }
 
-    // Костыль для получения HttpClient'а для HTTPS
+    // HttpClient  HTTPS
     private enum HttpsClientBuilderGiver {
         INSTANCE;
 
