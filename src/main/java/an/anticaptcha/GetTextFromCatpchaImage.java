@@ -17,7 +17,7 @@ public class GetTextFromCatpchaImage {
         DebugHelper.setVerboseMode(true);
 
         ImageToText api = new ImageToText();
-        api.setClientKey("930b161fd1c1e4e4ec53016b41d50df3");
+        api.setClientKey("");
         api.setFilePath(convertImageToBase64(url,"jpg"));
         try {
             if (!api.createTask()) {
